@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#FFFFFF"/>
+  <!-- floor -->
+  <rect x="2" y="58" width="60" height="2.5" rx="1.25" fill="#1E2A36"/>
+  <!-- worker -->
+  <g>
+    <path d="M8 16 Q15 6 22 16 L22 19 L8 19 Z" fill="#1E2A36"/>
+    <rect x="8" y="19" width="16" height="2.5" rx="1.25" fill="#1E2A36"/>
+    <path d="M9.5 14 Q15 9 20.5 14" fill="none" stroke="#7FD4FF" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M10 19 Q10 26 13 28 L17 28 Q20 26 20 19 Z" fill="#1E2A36"/>
+    <path d="M9 22 Q7 22 7 24" fill="none" stroke="#2376C2" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M11 28 Q11 46 13 48 L19 48 Q21 46 21 28 Z" fill="#1E2A36"/>
+    <rect x="19" y="30" width="16" height="4" rx="2" fill="#1E2A36"/>
+    <path d="M20 31.5 Q27 31.5 34 31.5" fill="none" stroke="#7FD4FF" stroke-width="1.1" stroke-linecap="round" opacity="0.9"/>
+    <rect x="34" y="27" width="11" height="14" rx="1.5" fill="#1D6FD1" transform="rotate(8 39.5 34)"/>
+    <rect x="35.5" y="28.5" width="8" height="11" rx="1" fill="none" stroke="#FFFFFF" stroke-width="1.2" transform="rotate(8 39.5 34)"/>
+  </g>
+  <!-- shelving unit -->
+  <g>
+    <rect x="54" y="8" width="4" height="50" rx="1" fill="#1E2A36"/>
+    <rect x="34" y="18" width="24" height="2.5" rx="1.25" fill="#1E2A36"/>
+    <rect x="34" y="34" width="24" height="2.5" rx="1.25" fill="#1E2A36"/>
+    <rect x="34" y="50" width="24" height="2.5" rx="1.25" fill="#1E2A36"/>
+    <rect x="34" y="8" width="10" height="10" rx="1.5" fill="#1D6FD1"/>
+    <rect x="46" y="11" width="7" height="7" rx="1.5" fill="#1D6FD1"/>
+    <rect x="34" y="24" width="10" height="10" rx="1.5" fill="#1D6FD1"/>
+    <rect x="46" y="27" width="7" height="7" rx="1.5" fill="#1D6FD1"/>
+    <rect x="34" y="40" width="9" height="10" rx="1.5" fill="#1D6FD1"/>
+    <rect x="45" y="40" width="9" height="10" rx="1.5" fill="#1D6FD1"/>
+  </g>
+</svg>

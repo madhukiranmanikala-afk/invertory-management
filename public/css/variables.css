@@ -1,0 +1,137 @@
+/* ==========================================================================
+   Design tokens
+   Modern SaaS palette: deep navy + teal base, cyan→violet brand gradient.
+   Role accents are injected at runtime (see js/preferences.js) and only
+   override the --accent* tokens, so everything below stays role-aware.
+   ========================================================================== */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+
+  /* 8px spacing scale */
+  --space-0: 0;
+  --space-05: 4px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Brand gradient — used for the logo, hero headline and marketing glow */
+  --brand-cyan: #22d3ee;
+  --brand-indigo: #6366f1;
+  --brand-violet: #a855f7;
+  --brand-grad: linear-gradient(135deg, #22d3ee 0%, #6366f1 52%, #a855f7 100%);
+  --brand-grad-soft: linear-gradient(135deg, rgba(34, 211, 238, 0.16), rgba(168, 85, 247, 0.14));
+
+  /* Role accent — replaced by JS after login */
+  --accent: #0e7490;
+  --accent-strong: #0891b2;
+  --accent-text: #0e7490;
+  --accent-soft: rgba(8, 145, 178, 0.12);
+  --accent-softer: rgba(8, 145, 178, 0.07);
+  --accent-contrast: #ffffff;
+  --accent-ring: rgba(8, 145, 178, 0.32);
+
+  /* Gradient built from the live role accent.
+     Both stops stay dark enough for white label text (>= 4.5:1). */
+  --accent-grad: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 80%, #000) 100%
+  );
+  --accent-grad-hover: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 68%, #000) 100%
+  );
+
+  /* Accent used for text that sits on a tinted accent background.
+     Slightly darkened in light mode so it clears 4.5:1 on the tint. */
+  --accent-text-on-tint: color-mix(in srgb, var(--accent-text) 86%, #000);
+
+  /* Deep brand gradient for text-bearing surfaces (white label text) */
+  --brand-deep-grad: linear-gradient(135deg, #0e7490 0%, #4338ca 54%, #7c3aed 100%);
+  --brand-deep-grad-hover: linear-gradient(135deg, #0b6b84 0%, #3730a3 54%, #6d28d9 100%);
+
+  /* Semantic */
+  --success: #15803d;
+  --success-soft: rgba(21, 128, 61, 0.12);
+  --success-text: #0f6b34;
+  --warning: #b45309;
+  --warning-soft: rgba(180, 83, 9, 0.13);
+  --warning-text: #97470a;
+  --danger: #b91c1c;
+  --danger-soft: rgba(185, 28, 28, 0.11);
+  --danger-text: #a31717;
+  --info: #1d4ed8;
+  --info-soft: rgba(29, 78, 216, 0.11);
+  --info-text: #1a45b8;
+  --neutral: #475569;
+  --neutral-soft: rgba(71, 85, 105, 0.1);
+  --neutral-text: #3f4d63;
+
+  /* Light theme surfaces */
+  --bg: #eef2f9;
+  --bg-pattern: radial-gradient(circle at 88% -8%, rgba(34, 211, 238, 0.16), transparent 42%),
+    radial-gradient(circle at -6% 104%, rgba(168, 85, 247, 0.14), transparent 40%),
+    radial-gradient(circle at 46% 18%, rgba(99, 102, 241, 0.07), transparent 46%);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-2: rgba(255, 255, 255, 0.62);
+  --surface-3: rgba(15, 35, 64, 0.06);
+  --surface-inset: rgba(11, 26, 48, 0.05);
+  --surface-solid: #ffffff;
+  --glass-blur: 18px;
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-edge: rgba(13, 31, 58, 0.09);
+  --text: #0b1220;
+  --text-muted: #44546b;
+  --text-subtle: #5b6b83;
+  --border: rgba(13, 31, 58, 0.11);
+  --border-strong: rgba(13, 31, 58, 0.2);
+  --grid-line: rgba(13, 31, 58, 0.09);
+
+  /* Sidebar — always a deep navy surface, tuned per theme in themes.css */
+  --sidebar-bg: #0b1424;
+  --sidebar-bg-2: #121f38;
+  --sidebar-text: #cfdaeb;
+  --sidebar-muted: #94a5bd;
+  --sidebar-label: #7d8ea8;
+  --sidebar-border: rgba(148, 163, 184, 0.14);
+  --sidebar-active-bg: var(--accent);
+  --sidebar-active-text: #ffffff;
+  --sidebar-hover: rgba(148, 176, 224, 0.1);
+  --sidebar-glow: rgba(34, 211, 238, 0.15);
+  --sidebar-glass: rgba(255, 255, 255, 0.07);
+  --sidebar-scroll: rgba(148, 163, 184, 0.3);
+  --sidebar-footer-h: 68px;
+
+  --shadow-xs: 0 1px 2px rgba(10, 22, 40, 0.06);
+  --shadow-sm: 0 2px 8px rgba(10, 22, 40, 0.07), 0 1px 2px rgba(10, 22, 40, 0.05);
+  --shadow-md: 0 14px 30px -12px rgba(10, 22, 40, 0.2), 0 6px 14px -8px rgba(10, 22, 40, 0.12);
+  --shadow-lg: 0 30px 60px -22px rgba(8, 18, 36, 0.34), 0 14px 28px -18px rgba(8, 18, 36, 0.18);
+  --shadow-xl: 0 44px 90px -30px rgba(6, 14, 30, 0.45), 0 20px 40px -24px rgba(6, 14, 30, 0.28);
+  --glow-accent: 0 12px 30px -12px var(--accent-ring);
+  --glow-brand: 0 18px 44px -18px rgba(99, 102, 241, 0.75);
+
+  --sidebar-width: 280px;
+  --topbar-height: 72px;
+  --focus-ring: 0 0 0 3px var(--accent-ring);
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --density-row: 54px;
+
+  /* Chart.js reads these directly */
+  --chart-accent: var(--accent-strong);
+}

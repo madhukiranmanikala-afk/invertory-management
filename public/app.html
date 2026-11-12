@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/themes.css">
+</head>
+<body>
+  <a href="#view" class="skip-link">Skip to main content</a>
+  <div id="app" class="app">
+    <aside id="sidebar" class="sidebar" aria-label="Sidebar">
+      <!-- Shell placeholder: replaced as soon as the session resolves -->
+      <div class="shell-skeleton" aria-hidden="true">
+        <div class="sidebar-brand">
+          <div class="brand-mark">
+            <img src="/logo.svg" width="26" height="26" alt="" />
+          </div>
+          <div class="sidebar-user-name">
+            <span class="skeleton skeleton-line" style="width:128px;height:13px;"></span>
+            <span class="skeleton skeleton-line" style="width:78px;height:10px;margin-top:9px;"></span>
+          </div>
+        </div>
+        <div class="sidebar-user">
+          <div class="skeleton shell-avatar"></div>
+          <div class="sidebar-user-name">
+            <span class="skeleton skeleton-line" style="width:108px;height:12px;"></span>
+            <span class="skeleton skeleton-line" style="width:86px;height:10px;margin-top:8px;"></span>
+          </div>
+        </div>
+        <nav class="sidebar-nav">
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:88px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:112px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:76px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:96px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:84px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:104px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:72px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:98px;"></span></div>
+          <div class="shell-nav-row"><span class="skeleton shell-nav-icon"></span><span class="skeleton skeleton-line" style="width:80px;"></span></div>
+        </nav>
+      </div>
+    </aside>
+    <div class="sidebar-scrim"></div>
+    <div class="app-main">
+      <header id="topbar" class="topbar">
+        <div class="shell-skeleton shell-topbar" aria-hidden="true">
+          <div>
+            <span class="skeleton skeleton-line" style="width:186px;height:19px;display:block;"></span>
+            <span class="skeleton skeleton-line" style="width:124px;height:11px;margin-top:10px;display:block;"></span>
+          </div>
+          <div class="shell-topbar-actions">
+            <span class="skeleton shell-icon-btn"></span>
+            <span class="skeleton shell-avatar" style="width:34px;height:34px;"></span>
+          </div>
+        </div>
+      </header>
+      <main id="view" class="view" tabindex="-1" aria-live="polite">
+        <div class="shell-skeleton" aria-hidden="true">
+          <div class="shell-kpi-row">
+            <div class="card"><span class="skeleton skeleton-line w-40"></span><span class="skeleton skeleton-line" style="width:64px;height:28px;margin-top:16px;display:block;"></span></div>
+            <div class="card"><span class="skeleton skeleton-line w-40"></span><span class="skeleton skeleton-line" style="width:64px;height:28px;margin-top:16px;display:block;"></span></div>
+            <div class="card"><span class="skeleton skeleton-line w-40"></span><span class="skeleton skeleton-line" style="width:64px;height:28px;margin-top:16px;display:block;"></span></div>
+            <div class="card"><span class="skeleton skeleton-line w-40"></span><span class="skeleton skeleton-line" style="width:64px;height:28px;margin-top:16px;display:block;"></span></div>
+          </div>
+          <div class="card"><span class="skeleton skeleton-line" style="width:180px;height:15px;"></span><span class="skeleton skeleton-line w-80" style="margin-top:20px;"></span><span class="skeleton skeleton-line w-60" style="margin-top:12px;"></span><span class="skeleton skeleton-line w-40" style="margin-top:12px;"></span></div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

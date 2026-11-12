@@ -1,0 +1,36 @@
+import { dateDaysAgo } from '../utils.js';
+
+export const orderStatuses = ['New', 'Processing', 'Completed', 'Cancelled'];
+
+export const orders = [
+  { id: 'ORD-5128', customer: 'Northwind Retail', date: dateDaysAgo(0), status: 'New', total: 842.5 },
+  { id: 'ORD-5127', customer: 'Blue Harbor Studio', date: dateDaysAgo(0), status: 'New', total: 319.0 },
+  { id: 'ORD-5126', customer: 'Pinecrest Offices', date: dateDaysAgo(0), status: 'Processing', total: 1258.75 },
+  { id: 'ORD-5125', customer: 'Lumen Works', date: dateDaysAgo(1), status: 'New', total: 486.25 },
+  { id: 'ORD-5124', customer: 'Hearth & Home', date: dateDaysAgo(1), status: 'Processing', total: 734.0 },
+  { id: 'ORD-5123', customer: 'Cobalt Labs', date: dateDaysAgo(1), status: 'Completed', total: 2145.5 },
+  { id: 'ORD-5122', customer: 'Willow Creek Co.', date: dateDaysAgo(2), status: 'New', total: 198.0 },
+  { id: 'ORD-5121', customer: 'Atlas Engineering', date: dateDaysAgo(2), status: 'Processing', total: 967.75 },
+  { id: 'ORD-5120', customer: 'Meridian Clinic', date: dateDaysAgo(2), status: 'Completed', total: 1532.0 },
+  { id: 'ORD-5119', customer: 'Nova Design Group', date: dateDaysAgo(3), status: 'Cancelled', total: 429.5 },
+  { id: 'ORD-5118', customer: 'Greenline Foods', date: dateDaysAgo(3), status: 'Completed', total: 1866.25 },
+  { id: 'ORD-5117', customer: 'Summit Legal', date: dateDaysAgo(4), status: 'New', total: 289.0 },
+  { id: 'ORD-5116', customer: 'Copperfield Media', date: dateDaysAgo(4), status: 'Processing', total: 1054.5 },
+  { id: 'ORD-5115', customer: 'Aster Hotels', date: dateDaysAgo(5), status: 'Completed', total: 3218.75 },
+  { id: 'ORD-5114', customer: 'Fable Bookshop', date: dateDaysAgo(5), status: 'Completed', total: 412.25 },
+  { id: 'ORD-5113', customer: 'Redwood Schools', date: dateDaysAgo(6), status: 'Cancelled', total: 678.0 },
+  { id: 'ORD-5112', customer: 'Beacon Financial', date: dateDaysAgo(6), status: 'Completed', total: 2478.5 },
+  { id: 'ORD-5111', customer: 'Juniper Spa', date: dateDaysAgo(7), status: 'Processing', total: 563.0 },
+  { id: 'ORD-5110', customer: 'Orion Logistics', date: dateDaysAgo(8), status: 'Completed', total: 1742.0 },
+  { id: 'ORD-5109', customer: 'Willow Creek Co.', date: dateDaysAgo(9), status: 'Completed', total: 958.75 },
+  { id: 'ORD-5108', customer: 'Lakeside Dental', date: dateDaysAgo(10), status: 'Cancelled', total: 284.5 },
+  { id: 'ORD-5107', customer: 'Pinecrest Offices', date: dateDaysAgo(12), status: 'Completed', total: 1326.25 },
+  { id: 'ORD-5106', customer: 'Cobalt Labs', date: dateDaysAgo(14), status: 'Completed', total: 2089.0 },
+  { id: 'ORD-5105', customer: 'Hearth & Home', date: dateDaysAgo(16), status: 'Completed', total: 765.5 },
+  { id: 'ORD-5104', customer: 'Nova Design Group', date: dateDaysAgo(18), status: 'Cancelled', total: 512.0 },
+  { id: 'ORD-5103', customer: 'Atlas Engineering', date: dateDaysAgo(21), status: 'Completed', total: 1498.75 },
+  { id: 'ORD-5102', customer: 'Blue Harbor Studio', date: dateDaysAgo(24), status: 'Completed', total: 622.0 },
+  { id: 'ORD-5101', customer: 'Summit Legal', date: dateDaysAgo(28), status: 'Completed', total: 438.5 },
+  { id: 'ORD-5100', customer: 'Greenline Foods', date: dateDaysAgo(33), status: 'Completed', total: 1971.25 },
+  { id: 'ORD-5099', customer: 'Aster Hotels', date: dateDaysAgo(39), status: 'Completed', total: 2640.0 },
+];

@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Dark theme
+   ========================================================================== */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #060b16;
+  --bg-pattern: radial-gradient(circle at 86% -10%, rgba(34, 211, 238, 0.16), transparent 44%),
+    radial-gradient(circle at -8% 106%, rgba(168, 85, 247, 0.17), transparent 42%),
+    radial-gradient(circle at 52% 14%, rgba(99, 102, 241, 0.12), transparent 48%);
+  --surface: rgba(16, 27, 47, 0.74);
+  --surface-2: rgba(26, 39, 63, 0.62);
+  --surface-3: rgba(148, 176, 224, 0.12);
+  --surface-inset: rgba(6, 13, 25, 0.45);
+  --surface-solid: #101b2f;
+  --glass-blur: 22px;
+  --glass-border: rgba(148, 176, 224, 0.16);
+  --glass-edge: rgba(148, 176, 224, 0.1);
+  --text: #e9eefb;
+  --text-muted: #a9b8d0;
+  --text-subtle: #8b9cb8;
+  --border: rgba(148, 176, 224, 0.16);
+  --border-strong: rgba(148, 176, 224, 0.28);
+  --grid-line: rgba(148, 176, 224, 0.12);
+
+  --sidebar-bg: #060d1a;
+  --sidebar-bg-2: #0d1a2e;
+  --sidebar-text: #cbd7ea;
+  --sidebar-muted: #8a9cb7;
+  --sidebar-label: #73859f;
+  --sidebar-border: rgba(148, 176, 224, 0.13);
+  --sidebar-hover: rgba(148, 176, 224, 0.09);
+  --sidebar-glow: rgba(34, 211, 238, 0.13);
+  --sidebar-glass: rgba(255, 255, 255, 0.06);
+  --sidebar-scroll: rgba(148, 176, 224, 0.28);
+
+  /* Vivid role gradient: JS points --accent-text at the role's light tone in dark mode */
+  --accent-grad: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 95%, #ffffff) 0%,
+    var(--accent) 100%
+  );
+  --accent-grad-hover: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 88%, #ffffff) 0%,
+    var(--accent) 100%
+  );
+
+  --success-text: #4ade80;
+  --warning-text: #fbbf24;
+  --danger-text: #fca5a5;
+  --info-text: #93c5fd;
+  --neutral-text: #cbd5e1;
+
+  /* On dark surfaces the light accent tone already clears 4.5:1 */
+  --accent-text-on-tint: var(--accent-text);
+
+  --success: #4ade80;
+  --success-soft: rgba(74, 222, 128, 0.14);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.14);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.15);
+  --info: #93c5fd;
+  --info-soft: rgba(147, 197, 253, 0.13);
+  --neutral: #cbd5e1;
+  --neutral-soft: rgba(203, 213, 225, 0.1);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 16px 32px -12px rgba(0, 0, 0, 0.65), 0 8px 16px -10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 32px 64px -22px rgba(0, 0, 0, 0.8), 0 18px 34px -22px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 48px 96px -34px rgba(0, 0, 0, 0.9), 0 24px 48px -26px rgba(0, 0, 0, 0.7);
+  --glow-accent: 0 14px 34px -14px var(--accent-ring);
+  --glow-brand: 0 20px 50px -20px rgba(99, 102, 241, 0.85);
+}
+
+/* --- Dark-theme component refinements ----------------------------------- */
+[data-theme="dark"] .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(148, 190, 255, 0.1), transparent);
+}
+
+[data-theme="dark"] .btn-secondary {
+  background: rgba(148, 176, 224, 0.08);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background: rgba(148, 176, 224, 0.14);
+}
+
+[data-theme="dark"] .btn-ghost:hover {
+  background: rgba(148, 176, 224, 0.12);
+}
+
+[data-theme="dark"] .btn-danger:hover {
+  background: #ef4444;
+}
+
+[data-theme="dark"] .form-field select,
+[data-theme="dark"] .toolbar-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b9cb8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .modal-overlay {
+  background: rgba(3, 8, 17, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+[data-theme="dark"] .sidebar-scrim {
+  background: rgba(2, 6, 14, 0.72);
+}
+
+[data-theme="dark"] .btn-primary {
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="dark"] .denied-code {
+  filter: brightness(1.2);
+}
+
+[data-theme="dark"] .data-table thead th {
+  background: rgba(10, 18, 33, 0.92);
+}
+
+[data-theme="dark"] .data-table tbody tr:nth-child(even) {
+  background: rgba(148, 176, 224, 0.035);
+}
+
+[data-theme="dark"] .data-table tbody tr:hover {
+  background: rgba(148, 176, 224, 0.08);
+}
+
+[data-theme="dark"] .nav-item.active {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent-strong) 34%, transparent),
+    color-mix(in srgb, var(--accent-strong) 8%, transparent)
+  );
+  color: #ffffff;
+  border-color: color-mix(in srgb, var(--accent-strong) 34%, transparent);
+  box-shadow: 0 10px 24px -14px var(--accent-ring),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .theme-preview.light {
+  background: linear-gradient(140deg, #ffffff, #e6ecf7);
+}
+
+[data-theme="dark"] .theme-preview.dark {
+  background: linear-gradient(140deg, #16223a, #080e1c);
+}
+
+/* ==========================================================================
+   Density
+   ========================================================================== */
+[data-density="compact"] {
+  --density-row: 44px;
+  --space-3: 20px;
+  --space-2: 12px;
+}
+
+[data-density="compact"] .view {
+  padding: var(--space-2);
+}
+
+[data-density="compact"] .card,
+[data-density="compact"] .kpi-card,
+[data-density="compact"] .table-toolbar,
+[data-density="compact"] .table-footer {
+  padding: var(--space-2);
+}
+
+[data-density="compact"] .data-table tbody td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+[data-density="compact"] .activity-item {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+[data-density="compact"] .chart-box {
+  height: 250px;
+}
