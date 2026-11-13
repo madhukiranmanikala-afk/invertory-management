@@ -31,6 +31,7 @@ export function mount(container, ctx) {
   const head = pageEl.querySelector('#products-head');
 
   function renderHead() {
+    const canOverrideEdit = ctx.hasPermission('products.update.owner');
     head.innerHTML = `
       <div>
         <h1>Products</h1>
@@ -40,9 +41,13 @@ export function mount(container, ctx) {
         ${ctx.hasPermission('products.create') ? `
           <button type="button" class="btn btn-primary" id="product-add">
             ${icon('plus', 16)} Add New
-          </button>` : readOnlyNotice()}
+          </button>` : `${readOnlyNotice()}${canOverrideEdit ? `
+          <button type="button" class="btn btn-primary" id="product-edit">
+            ${icon('edit', 16)} Edit
+          </button>` : ''}`}
       </div>`;
     head.querySelector('#product-add')?.addEventListener('click', () => openProductModal());
+    head.querySelector('#product-edit')?.addEventListener('click', () => openOwnerEditModal());
   }
 
   function columns() {
@@ -171,6 +176,103 @@ export function mount(container, ctx) {
         ...(ctx.hasPermission('products.update') ? [{ label: 'Edit product', variant: 'primary', onClick: (close) => { close(); openProductModal(row); } }] : []),
       ],
     });
+  }
+
+  /**
+   * Owner-only override: the read-only product screen can be switched into an
+   * editable form so the Owner can correct any product record.
+   */
+  function openOwnerEditModal() {
+    if (!rows.length) {
+      showToast('There are no products to edit yet.', 'error');
+      return;
+    }
+
+    const fields = [
+      { name: 'productId', label: 'Product', type: 'select', required: true, span: 2, options: rows.map((row) => ({ value: row.id, label: `${row.name} — ${row.sku}` })) },
+      { name: 'name', label: 'Product name', type: 'text', required: true, placeholder: 'e.g. Aurora Desk Lamp' },
+      { name: 'sku', label: 'SKU', type: 'text', required: true, placeholder: 'e.g. ELEC-1010' },
+      { name: 'category', label: 'Category', type: 'select', required: true, options: categories.map((c) => ({ value: c, label: c })) },
+      { name: 'price', label: 'Price (₹)', type: 'number', required: true, step: '0.01', min: 0 },
+      { name: 'quantity', label: 'Quantity', type: 'number', required: true, step: '1', min: 0 },
+      { name: 'minLevel', label: 'Minimum stock level', type: 'number', required: true, step: '1', min: 0 },
+      { name: 'status', label: 'Status preview', type: 'text', readonly: true, span: 2 },
+    ];
+
+    const valuesFor = (product) => ({
+      productId: product.id,
+      name: product.name,
+      sku: product.sku,
+      category: product.category,
+      price: product.price,
+      quantity: product.quantity,
+      minLevel: product.minLevel,
+      status: product.status,
+    });
+
+    const form = buildForm(fields, valuesFor(rows[0]), { idPrefix: 'owner-product-form' });
+    const statusInput = form.element.querySelector('[name="status"]');
+    const previewInput = (name) => form.element.querySelector(`[name="${name}"]`);
+    const updateStatusPreview = () => {
+      const status = computedStatus(previewInput('quantity')?.value, previewInput('minLevel')?.value);
+      if (statusInput) statusInput.value = status;
+    };
+    ['quantity', 'minLevel'].forEach((name) => form.element.querySelector(`[name="${name}"]`)?.addEventListener('input', updateStatusPreview));
+
+    // Switching the product loads that product's current values into the form.
+    previewInput('productId')?.addEventListener('change', (event) => {
+      const product = rows.find((row) => row.id === event.target.value);
+      if (!product) return;
+      form.setValues(valuesFor(product));
+      updateStatusPreview();
+      form.clearErrors();
+    });
+
+    const modalForm = openModal({
+      title: 'Edit product',
+      subtitle: 'Owner override — update any product record',
+      size: 'lg',
+      content: form.element,
+      actions: [
+        { label: 'Cancel', variant: 'secondary' },
+        { label: 'Save changes', variant: 'primary', onClick: (close) => handleSubmit(close) },
+      ],
+    });
+
+    async function handleSubmit(close) {
+      const vals = form.getValues();
+      const errors = validate(vals);
+      form.clearErrors();
+      const result = form.validateRequired(errors);
+      if (!result.valid) {
+        result.focusFirst();
+        const modalBody = modalForm?.modal?.querySelector('.modal-body');
+        if (modalBody) modalBody.scrollTop = 0;
+        return;
+      }
+      const payload = {
+        name: vals.name.trim(),
+        sku: vals.sku.trim(),
+        category: vals.category,
+        price: Number(vals.price),
+        quantity: Number(vals.quantity),
+        minLevel: Number(vals.minLevel),
+      };
+      const submitBtn = modalForm.element.querySelector('.modal-foot .btn-primary');
+      submitBtn.disabled = true;
+      try {
+        const updated = await updateProduct(vals.productId, payload);
+        showToast(`Product "${updated.name}" updated.`, 'success');
+        close();
+        await reload();
+      } catch (error) {
+        showToast(error.message || 'Something went wrong.', 'error');
+        form.clearErrors();
+        handleApiErrors(form, error);
+        result.focusFirst();
+        submitBtn.disabled = false;
+      }
+    }
   }
 
   function openProductModal(existing = null) {

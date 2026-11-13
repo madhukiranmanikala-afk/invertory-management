@@ -13,6 +13,8 @@ export const ROLE_PERMISSIONS = {
     'users.reset',
     // Read-only visibility into every operational module
     'products.view',
+    // Owner override: lets the Owner edit a product record from the read-only view.
+    'products.update.owner',
     'sales.view',
     'stock.view',
     'purchases.view',

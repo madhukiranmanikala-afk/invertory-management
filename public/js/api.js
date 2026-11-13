@@ -489,7 +489,7 @@ export async function createProduct(payload) {
 
 export async function updateProduct(id, payload) {
   await delay();
-  requirePermission('products.update');
+  requireAnyPermission(['products.update', 'products.update.owner']);
   const product = findProductById(id);
   if (!product) throw new ApiError('Product not found.', 'NOT_FOUND', 404);
   const data = normaliseProductInput(payload, id);
