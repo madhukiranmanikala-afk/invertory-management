@@ -4,7 +4,15 @@ A frontend-only, multi-role inventory management workspace built with HTML5, CSS
 
 ## Run it
 
-Serve the `public` folder with any static server, then open `/index.html`:
+Serve the `public` folder with the bundled zero-dependency static server, then open `http://localhost:3000/`:
+
+```bash
+npm start
+# or pick a port
+PORT=8080 npm start
+```
+
+Any other static server works too:
 
 ```bash
 npx serve public
