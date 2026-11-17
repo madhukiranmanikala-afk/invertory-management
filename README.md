@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Inventory Management — Frontend
 
 A frontend-only, multi-role inventory management workspace built with HTML5, CSS3 and vanilla JavaScript (ES6 modules). Chart.js is loaded from the jsDelivr CDN; there are no build steps and no other dependencies.
@@ -73,3 +74,6 @@ The Owner holds `*.view` for every module but not the matching `*.create` / `*.u
 - Products, Sales, Stock (with stock-out limits and required adjustment reasons), Purchase (with receive quantities) and Orders (with status changes) modules.
 - Notifications, profile, settings (theme/density/password strength), activity history, help and support.
 - Light/dark themes, responsive down to mobile with a hamburger drawer, keyboard-operable modals, visible focus states and aria-live toasts.
+=======
+# invertory-management
+>>>>>>> de2fbbf9148200b96de3594fd5c074967599e191
